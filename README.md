@@ -34,14 +34,21 @@ Intro to building web applications using Flask.
   Install mysql extension, pip install flask-mysql                                                                             
   Provide DB credentials in your code to connect.                                                                             
   
-  from flaskext.mysql import MySQL                                                                                             
-  mysql = MySQL()                                                                                                             
-  app = Flask(__name__)                                          							
-  app.config['MYSQL_DATABASE_USER'] = '<username>'									
-  app.config['MYSQL_DATABASE_PASSWORD'] = '<password>'									
-  app.config['MYSQL_DATABASE_DB'] = 'flask'										
-  app.config['MYSQL_DATABASE_HOST'] = 'localhost'									
-  mysql.init_app(app)
+from flaskext.mysql import MySQL                                                                                             
+  
+mysql = MySQL()                                                                                                             
+  
+app = Flask(__name__)
+  
+app.config['MYSQL_DATABASE_USER'] = '<username>'									
+ 
+app.config['MYSQL_DATABASE_PASSWORD'] = '<password>'									
+ 
+app.config['MYSQL_DATABASE_DB'] = 'flask'										
+ 
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'									
+
+mysql.init_app(app)
 
 
 
