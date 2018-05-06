@@ -30,9 +30,9 @@ Intro to building web applications using Flask.
     
 # Connecting to Database
 
-  Create a new mysql database flask.
-  Install mysql extension, pip install flask-mysql
-  Provide DB credentials in your code to connect.
+  Create a new mysql database flask.                                                                                           
+  Install mysql extension, pip install flask-mysql                                                                             
+  Provide DB credentials in your code to connect.                                                                             
   
   from flaskext.mysql import MySQL  
   mysql = MySQL()
