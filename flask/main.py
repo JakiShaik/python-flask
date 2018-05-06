@@ -2,9 +2,9 @@ from flask import Flask, request, render_template
 from flaskext.mysql import MySQL
 mysql = MySQL()
 app = Flask(__name__)
-app.config['MYSQL_DATABASE_USER'] = 'rk'
-app.config['MYSQL_DATABASE_PASSWORD'] = '8051'
-app.config['MYSQL_DATABASE_DB'] = 'test'
+app.config['MYSQL_DATABASE_USER'] = '<username>'
+app.config['MYSQL_DATABASE_PASSWORD'] = '<password>'
+app.config['MYSQL_DATABASE_DB'] = 'flask'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
