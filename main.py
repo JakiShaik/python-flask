@@ -2,9 +2,9 @@ from flask import Flask, request, render_template, redirect
 from flaskext.mysql import MySQL
 mysql = MySQL()
 app = Flask(__name__)
-app.config['MYSQL_DATABASE_USER'] = 'rk'
-app.config['MYSQL_DATABASE_PASSWORD'] = '8051'
-app.config['MYSQL_DATABASE_DB'] = 'test'
+app.config['MYSQL_DATABASE_USER'] = '<username>'
+app.config['MYSQL_DATABASE_PASSWORD'] = '<password>'
+app.config['MYSQL_DATABASE_DB'] = '<database>'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
@@ -60,32 +60,9 @@ def update1():
     update = request.form['update']
 
     if update == 'update' :
-        userId = request.form['userId']
-        userName = request.form['userName']
-        userPost = request.form['userPost']
-        conn = mysql.connect()
-        cursor = conn.cursor()
-        cursor.execute("SELECT * from Users where userId='" + userId + "'")
-        data = cursor.fetchone()
-        if data is None:
-            return redirect("/update", code=302)
-        else:
-            cursor.execute("update Users set username='" + userName + "', userpost='" + userPost + "' where userId='" + userId + "'")
-            conn.commit()
-            return redirect("/users", code=302)
+        #   retrieve userId, userName, userPost and update it to database and redirect to /users
     elif update == 'delete' :
-        userId = request.form['userId']
-        conn = mysql.connect()
-        cursor = conn.cursor()
-        cursor.execute("SELECT * from Users where userId='" + userId + "'")
-        data = cursor.fetchone()
-        if data is None:
-            return redirect("/update", code=302)
-        else:
-            cursor.execute(
-                "delete from Users where userId='" + userId + "'")
-            conn.commit()
-            return redirect("/users", code=302)
+        #   retrieve userId and delete from the database and redirect to /users
 
 @app.route('/a')
 def a():
