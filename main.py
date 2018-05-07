@@ -11,29 +11,25 @@ mysql.init_app(app)
 @app.route('/search')
 def search():
     userId = request.args.get('userId')
-
     cursor = mysql.connect().cursor()
     cursor.execute("SELECT * from Users where userId='" + userId + "'")
     data = cursor.fetchone()
-    print(data)
     if data is None:
         return redirect('/users')
     else:
         return render_template('update.html',user=data)
 
 @app.route('/')
-@app.route('/<us>')
-def index(us=None):
+@app.route('/<login>')
+def index(login=None):
     num = ['1','2','3']
-    return render_template('us.html', us=us,num=num)
+    return render_template('login.html', login=login,num=num)
 
 @app.route('/users',methods=['GET'])
 def users():
     cursor = mysql.connect().cursor()
     cursor.execute("SELECT * from Users")
     data = cursor.fetchall()
-    print(data)
-    print(data[0][1])
     return render_template('users.html',users= data)
 
 @app.route('/create',methods=['GET'])

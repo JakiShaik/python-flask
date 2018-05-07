@@ -27,7 +27,7 @@ def save():
 @app.route('/<us>')
 def index(us=None):
     num = ['1','2','3']
-    return render_template('us.html', us=us,num=num)
+    return render_template('login.html', us=us,num=num)
 
 @app.route('/users',methods=['GET'])
 def users():
